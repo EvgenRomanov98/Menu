@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="postgres@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.9">
+    <root id="1">
+      <ServerVersion>9.3.3</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="16_06_18">
+      <ObjectId>16393</ObjectId>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12029</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <IntrospectionStateNumber>2</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <role id="4" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <schema id="5" parent="3" name="information_schema">
+      <ObjectId>11480</ObjectId>
+    </schema>
+    <schema id="6" parent="3" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+    </schema>
+    <schema id="7" parent="3" name="pg_temp_1">
+      <ObjectId>11215</ObjectId>
+    </schema>
+    <schema id="8" parent="3" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Comment>reserved schema for TOAST tables</Comment>
+    </schema>
+    <schema id="9" parent="3" name="pg_toast_temp_1">
+      <ObjectId>11216</ObjectId>
+    </schema>
+    <schema id="10" parent="3" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <IntrospectionTimestamp>2018-07-24.12:33:20.538</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1035</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <access-method id="11" parent="3" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+    </access-method>
+    <access-method id="12" parent="3" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+    </access-method>
+    <access-method id="13" parent="3" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+    </access-method>
+    <access-method id="14" parent="3" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+    </access-method>
+    <access-method id="15" parent="3" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+    </access-method>
+    <sequence id="16" parent="10" name="note_id_seq">
+      <ObjectId>49172</ObjectId>
+      <StateNumber>1007</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="17" parent="10" name="menu">
+      <ObjectId>49178</ObjectId>
+      <StateNumber>1035</StateNumber>
+    </table>
+    <table id="18" parent="10" name="note">
+      <ObjectId>40975</ObjectId>
+      <StateNumber>994</StateNumber>
+    </table>
+    <column id="19" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>820</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="20" parent="18" name="ser_name">
+      <Position>3</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>820</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="21" parent="18" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>820</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="22" parent="18" name="id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1008</StateNumber>
+      <DefaultExpression>nextval(&apos;note_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>note_id_seq</SequenceName>
+    </column>
+  </database-model>
+</dataSource>
