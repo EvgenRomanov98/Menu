@@ -73,7 +73,8 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <!--Hibernate-->
+
+        <!-- HIBERNATE -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -103,28 +104,17 @@
             <artifactId>p6spy</artifactId>
             <version>3.7.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
-            <!--<plugin>-->
-            <!--<artifactId>maven-compiler-plugin</artifactId>-->
-            <!--<version>3.7.0</version>-->
-            <!--<configuration>-->
-            <!--<source>1.8</source>-->
-            <!--<target>1.8</target>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
-
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
-                    <release>8</release>
-                    <verbose>true</verbose>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 

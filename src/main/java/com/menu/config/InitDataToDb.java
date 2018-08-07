@@ -1,46 +1,29 @@
 package com.menu.config;
 
-import com.menu.dao.StudentDao;
-import com.menu.entity.Student;
-import com.menu.entity.StudentTask;
+import com.menu.service.CRUD_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class InitDataToDb {
 
-    @Autowired
-    private StudentDao studentDao;
-
+//    @Autowired
+//    private CRUD_service crud_service;
 
     @PostConstruct
     private void init() {
 
-        Student student = new Student();
-        List<StudentTask> studentTaskList = new ArrayList<>();
-        StudentTask studentTask1 = new StudentTask("task1", student);
-        StudentTask studentTask2 = new StudentTask("task2", student);
-        StudentTask studentTask3 = new StudentTask("task3", student);
-        StudentTask studentTask4 = new StudentTask("task4", student);
-        StudentTask studentTask5 = new StudentTask("tasck5", student);
-
-        studentTaskList.add(studentTask1);
-        studentTaskList.add(studentTask2);
-        studentTaskList.add(studentTask3);
-        studentTaskList.add(studentTask4);
-        studentTaskList.add(studentTask5);
-
-
-        student.setPhone("12345");
-        student.setName("ivan");
-        student.setTaskList(studentTaskList);
-
-        studentDao.saveOrUpdate(student);
-
+//        ArrayList<Cell> cells = new ArrayList<>();
+//        cells.add(new Cell("1c"));
+//        cells.add(new Cell("2c"));
+//        cells.add(new Cell("3c"));
+//        Category category = new Category();
+//        category.setTitle("t1");
+//        category.setCellList(cells);
+//
+//        crud_service.saveOrUpdate(category);
     }
 
 }

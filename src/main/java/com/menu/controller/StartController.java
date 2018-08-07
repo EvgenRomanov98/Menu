@@ -1,14 +1,16 @@
 package com.menu.controller;
 
-import com.menu.service.StudentService;
-import com.menu.entity.Student;
-import com.menu.service.StudentService;
+import com.menu.entity.Category;
+import com.menu.service.CRUD_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,28 +18,48 @@ import java.util.List;
 public class StartController {
 
     @Autowired
-    private StudentService studentService;
+    private CRUD_service crud_service;
 
+    private List<Category> categoryList = new ArrayList<>();
+    private List<Category> categoryList2Level = new ArrayList<>();
 
-    List<Student> studentListModify = null;
-
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String getStudentList(Model model) {
-        model.addAttribute("userList", studentService.userList());
-       // model.addAttribute("userListModify", userListModify);
-        return "start";
+
+
+        model.addAttribute("category", categoryList);
+        model.addAttribute("category2Level", categoryList2Level);
+
+//        model.addAttribute("li", "<ul>\n" +
+//                "<li><a href=\"#\"><i class=\"fa fa-home\"></i> Гдавная </a></li></ul>");
+        return "index";
     }
 
-    @RequestMapping(value = "/modify", method = RequestMethod.GET)
-    public String getModifyStudentList(Model model) {
-        studentListModify = studentService.userListWithModific();
+    @GetMapping(value = "add")
+    public String add(@RequestParam(name = "title") String title, HttpServletRequest req) {
+
+        Category category = new Category(title);
+
+        crud_service.saveOrUpdate(category);
+
+        categoryList.add(category);
+
+//        String title = req.getParameter("title");
+//        req.setAttribute("add", "<ul><li><a href=\"/add\">" + title + "</a></li></ul>");
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/salary", method = RequestMethod.GET)
-    public String getStudentSalary(Model model) {
-        System.out.println(" in salary contr");
-        studentService.userListWithCel().forEach((k, v) -> System.out.println(k.getName() + " -- " + v));
+    @GetMapping(value = "addCell")
+    public String addCell(@RequestParam(name = "title") String title, HttpServletRequest req) {
+
+        Category category = new Category(title);
+
+        crud_service.saveOrUpdate(category);
+
+        categoryList2Level.add(category);
+
+//        String title = req.getParameter("title");
+//        req.setAttribute("add", "<ul><li><a href=\"/add\">" + title + "</a></li></ul>");
         return "redirect:/";
     }
 }

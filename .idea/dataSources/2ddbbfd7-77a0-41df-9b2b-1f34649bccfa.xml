@@ -44,8 +44,8 @@
     <schema id="10" parent="3" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-07-24.12:33:20.538</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1035</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-08-06.23:14:46.436</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1038</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -70,45 +70,53 @@
       <Comment>SP-GiST index access method</Comment>
     </access-method>
     <sequence id="16" parent="10" name="note_id_seq">
-      <ObjectId>49172</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>57354</ObjectId>
+      <StateNumber>1038</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="17" parent="10" name="menu">
-      <ObjectId>49178</ObjectId>
-      <StateNumber>1035</StateNumber>
+    <table id="17" parent="10" name="note">
+      <ObjectId>57356</ObjectId>
+      <StateNumber>1038</StateNumber>
     </table>
-    <table id="18" parent="10" name="note">
-      <ObjectId>40975</ObjectId>
-      <StateNumber>994</StateNumber>
-    </table>
-    <column id="19" parent="18" name="name">
-      <Position>2</Position>
-      <DataType>varchar(80)|0s</DataType>
-      <StateNumber>820</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="20" parent="18" name="ser_name">
-      <Position>3</Position>
-      <DataType>varchar(80)|0s</DataType>
-      <StateNumber>820</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="21" parent="18" name="phone">
-      <Position>4</Position>
-      <DataType>varchar(80)|0s</DataType>
-      <StateNumber>820</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="22" parent="18" name="id">
-      <Position>6</Position>
+    <column id="18" parent="17" name="id">
+      <Position>1</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>1008</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>1038</StateNumber>
       <DefaultExpression>nextval(&apos;note_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>note_id_seq</SequenceName>
     </column>
+    <column id="19" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>1038</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="20" parent="17" name="ser_name">
+      <Position>3</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>1038</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="21" parent="17" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>1038</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="22" parent="17" name="note_pkey">
+      <ObjectId>57360</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="17" name="note_pkey">
+      <ObjectId>57361</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>note_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>
