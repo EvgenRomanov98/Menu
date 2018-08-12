@@ -16,5 +16,6 @@
     <input type="text" placeholder="Название ячейки" name="title">
     <input type="submit" value="Add">
 </form>
+
 </body>
 </html>

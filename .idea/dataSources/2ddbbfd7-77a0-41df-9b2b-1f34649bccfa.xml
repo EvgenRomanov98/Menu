@@ -44,8 +44,8 @@
     <schema id="10" parent="3" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-08-06.23:14:46.436</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1038</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-08-11.16:00:00.487</IntrospectionTimestamp>
+      <IntrospectionStateNumber>3594</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -69,18 +69,84 @@
       <ObjectId>4000</ObjectId>
       <Comment>SP-GiST index access method</Comment>
     </access-method>
-    <sequence id="16" parent="10" name="note_id_seq">
+    <sequence id="16" parent="10" name="hibernate_sequence">
+      <ObjectId>63724</ObjectId>
+      <StateNumber>3593</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="17" parent="10" name="note_id_seq">
       <ObjectId>57354</ObjectId>
       <StateNumber>1038</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="17" parent="10" name="note">
+    <table id="18" parent="10" name="categories">
+      <ObjectId>63698</ObjectId>
+      <StateNumber>3569</StateNumber>
+    </table>
+    <table id="19" parent="10" name="category">
+      <ObjectId>63726</ObjectId>
+      <StateNumber>3594</StateNumber>
+    </table>
+    <table id="20" parent="10" name="note">
       <ObjectId>57356</ObjectId>
       <StateNumber>1038</StateNumber>
     </table>
-    <column id="18" parent="17" name="id">
+    <table id="21" parent="10" name="subcategories">
+      <ObjectId>63703</ObjectId>
+      <StateNumber>3570</StateNumber>
+    </table>
+    <column id="22" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>3569</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="23" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>3569</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="24" parent="18" name="categories_pkey">
+      <ObjectId>63701</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="25" parent="18" name="categories_pkey">
+      <ObjectId>63702</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>categories_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>3594</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="27" parent="19" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>3594</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="28" parent="19" name="category_pkey">
+      <ObjectId>63729</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="29" parent="19" name="category_pkey">
+      <ObjectId>63730</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="20" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -89,33 +155,57 @@
       <TypeId>23</TypeId>
       <SequenceName>note_id_seq</SequenceName>
     </column>
-    <column id="19" parent="17" name="name">
+    <column id="31" parent="20" name="name">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>1038</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="20" parent="17" name="ser_name">
+    <column id="32" parent="20" name="ser_name">
       <Position>3</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>1038</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="21" parent="17" name="phone">
+    <column id="33" parent="20" name="phone">
       <Position>4</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>1038</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="22" parent="17" name="note_pkey">
+    <index id="34" parent="20" name="note_pkey">
       <ObjectId>57360</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="23" parent="17" name="note_pkey">
+    <key id="35" parent="20" name="note_pkey">
       <ObjectId>57361</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>note_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>3570</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="37" parent="21" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>3570</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="38" parent="21" name="subcategories_pkey">
+      <ObjectId>63706</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="21" name="subcategories_pkey">
+      <ObjectId>63707</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>subcategories_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
   </database-model>

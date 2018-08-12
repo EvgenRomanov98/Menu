@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="../resources/style/Menu.css">
     <link rel="stylesheet" href="../resources/Icons/css/font-awesome.css">
     <title>TestMenu</title>
+
+    <script>
+ function x() {
+     alert("aaa")
+ }
+    </script>
+
 </head>
 <body>
 
@@ -64,14 +71,17 @@
         <ul>
             <c:forEach items="${category}" var="category">
 
-                <li><a href="#">${category.title}</a>
+                <li><a href="#" data-id="${category.id}">${category.title}</a>
                     <ul>
 
                         <c:forEach items="${category2Level}" var="ca2L">
-                            <li><a href="#"> ${ca2L.title} </a></li>
+                            <li><a href="#" data-id="${ca2L.id}"> ${ca2L.title} </a></li>
                         </c:forEach>
 
-                        <li><a href="../addCell.jsp">добавить подкатегорию</a></li>
+
+                        <c:url value="/add/${category.id}/cat2Lev" var="addCategory2Level"/>
+                        <li><a href="${addCategory2Level}" onmouseup="x()"> добавить подкатегорию </a></li>
+
 
                     </ul>
                 </li>
@@ -81,6 +91,7 @@
             <li>
                 <a href="../add.jsp"> добавить категорию </a>
             </li>
+
         </ul>
 
     </nav>

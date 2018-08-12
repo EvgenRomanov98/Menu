@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -51,13 +52,23 @@ public class StartController {
 
     @GetMapping(value = "addCell")
     public String addCell(@RequestParam(name = "title") String title, HttpServletRequest req) {
-
+        System.out.println("i am add");
         Category category = new Category(title);
 
         crud_service.saveOrUpdate(category);
 
         categoryList2Level.add(category);
 
+//        String title = req.getParameter("title");
+//        req.setAttribute("add", "<ul><li><a href=\"/add\">" + title + "</a></li></ul>");
+        return "redirect:/";
+    }
+
+
+    @GetMapping(value = "/add/{id}/cat2Lev")
+    public String getIdLastCell(@PathVariable("id") String id, HttpServletRequest req) {
+
+        System.out.println(id);
 //        String title = req.getParameter("title");
 //        req.setAttribute("add", "<ul><li><a href=\"/add\">" + title + "</a></li></ul>");
         return "redirect:/";
